@@ -105,7 +105,6 @@ int main(int argc, char **argv) {
     students = new StudentStruct[MAX_STUDENTS];
 
     /* FIXME: parameter numOfStudent를 reference 타입으로 바꿔보기 */
-    /* 생각해보기: fillStudentRecord의 파라미터 중, students를 reference로 전달할 수 없는 이유는? */
     fillStudentRecord(students, &numOfStudent);
 
     doTest1();
