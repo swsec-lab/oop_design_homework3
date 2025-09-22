@@ -28,6 +28,7 @@ struct SortByID{
     }
 };
 
+
 // 이름순으로 정렬하기 위한 Functor (SortByName) 정의 
 /* TODO */
 
@@ -47,24 +48,28 @@ void doTest1(){
 
     printStudentList();
 
-
     // SortByID를 이용해 ID 순서로 정렬
+    cout << "Sort by ID" << endl;
     std::sort(students, students + numOfStudent, SortByID{});
     printStudentList();
 
     // SortByName을 이용해 알파벳 순으로 이름 정렬 
+    cout << "Sort by Name" << endl;
     /* TODO */
     printStudentList();
 
     // SortByMidterm을 이용해 중간고사 성적 높은 순으로 정렬
+    cout << "Sort by Midterm" << endl;
     /* TODO */
     printStudentList();
 
     // SortByFinal을 이용해 기말고사 성적 높은 순으로 정렬
+    cout << "Sort by Final" << endl;
     /* TODO */
     printStudentList();
 
     // SortByTotal을 이용해 중간 + 기말 고사 높은 순으로 정렬
+    cout << " Sort by Total" << endl;
     /* TODO */
     printStudentList();
 }
@@ -75,6 +80,7 @@ void doTest2(){
     cout << "Test 2" << endl;
 
     // StudentStruct의 ID 필드를 기준으로 알파벳 순으로 정렬하는 lambda 함수 정의 및 std::sort를 이용해 정렬하기
+    cout << "Sort by ID" << endl;
     auto sortByID = [](StudentStruct &a, StudentStruct &b) -> int {
         return a.id < b.id;
     };
@@ -82,19 +88,23 @@ void doTest2(){
     printStudentList();
 
     // StudentStruct의 name 필드를 기준으로 알파벳 순으로 정렬하는 lambda 함수 정의 및 std::sort를 이용해 정렬하기
+    cout << "Sort by Name" << endl;
     /* TODO */
     printStudentList();
 
     // StudentStruct의 midterm 점수를 기준으로 높은순으로 정렬하는 lambda 함수 정의 및 std::sort를 이용해 정렬하기
+    cout << "Sort by Midterm" << endl;
     /* TODO */
     printStudentList();
 
 
     // StudentStruct의 final 점수를 기준으로 높은순으로 정렬하는 lambda 함수 정의 및 std::sort를 이용해 정렬하기
+    cout << "Sort by Final" << endl;
     /* TODO */
     printStudentList();
 
     // StudentStruct의 midterm+final 점수를 기준으로 알파벳 순으로 정렬하는 lambda 함수 정의 및 std::sort를 이용해 정렬하기
+    cout << " Sort by Total" << endl;
     /* TODO */
     printStudentList();
 
@@ -106,6 +116,21 @@ int main(int argc, char **argv) {
 
     /* FIXME: parameter numOfStudent를 reference 타입으로 바꿔보기 */
     fillStudentRecord(students, &numOfStudent);
+
+
+    if(argc == 2){
+        int select = atoi(argv[1]);
+        switch(select){
+            case 1:
+                doTest1();
+                delete[] students;
+                return 0;
+            case 2:
+                doTest2();
+                delete[] students;
+                return 0;
+        }
+    }
 
     doTest1();
     doTest2();
